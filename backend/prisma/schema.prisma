@@ -50,6 +50,11 @@ model Patient {
   gender         String
   identifier     String          @unique // e.g. National ID
   clinicalEvents ClinicalEvent[]
+  encounters     Encounter[]
+  permissions    Permission[]
+  consents       Consent[]
+  medications    Medication[]
+  auditLogs      AuditLog[]
   createdAt      DateTime        @default(now())
   updatedAt      DateTime        @updatedAt
 }
@@ -68,4 +73,144 @@ model ClinicalEvent {
   @@index([patientId])
   @@index([type])
   @@index([timestamp])
+}
+
+// --- Core Healins Domain Models (canonical additions) ---
+
+model Facility {
+  id        String   @id @default(uuid())
+  name      String   @unique
+  district  String
+  region    String?
+  hmsType   String   // 'openmrs', 'dhis2', 'custom'
+  hmsUrl    String?
+  phone     String?
+  email     String?
+
+  encounters    Encounter[]
+  medicineStock MedicineStock[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([district])
+}
+
+model Encounter {
+  id            String   @id @default(uuid())
+
+  patientId     String
+  patient       Patient  @relation(fields: [patientId], references: [id], onDelete: Cascade)
+
+  facilityId    String?
+  facility      Facility? @relation(fields: [facilityId], references: [id], onDelete: SetNull)
+
+  visitDate     DateTime
+  symptoms      String?
+  diagnosis     String
+  diagnosisCode String?
+  treatment     String?
+  medicines     String[]
+
+  providerName  String?
+  notes         String?
+
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([patientId])
+  @@index([facilityId])
+  @@index([visitDate])
+}
+
+model Permission {
+  id         String   @id @default(uuid())
+
+  patientId  String
+  patient    Patient  @relation(fields: [patientId], references: [id], onDelete: Cascade)
+
+  doctorName String
+  status     String   @default("active") // active, revoked
+
+  grantedAt  DateTime @default(now())
+  revokedAt  DateTime?
+  revokeReason String?
+  expiresAt  DateTime?
+
+  @@index([patientId])
+  @@index([status])
+}
+
+model AuditLog {
+  id         String   @id @default(uuid())
+
+  patientId  String
+  patient    Patient  @relation(fields: [patientId], references: [id], onDelete: Cascade)
+
+  action     String   // VIEW, GRANT, REVOKE, EXPORT, EMERGENCY_ACCESS
+  doctorName String?
+  reason     String?
+  isEmergency Boolean @default(false)
+
+  timestamp  DateTime @default(now())
+  ipAddress  String?
+
+  @@index([patientId])
+  @@index([action])
+  @@index([timestamp])
+}
+
+model Medication {
+  id         String   @id @default(uuid())
+
+  patientId  String
+  patient    Patient  @relation(fields: [patientId], references: [id], onDelete: Cascade)
+
+  name       String
+  dose       String
+  frequency  String
+  startDate  DateTime
+  endDate    DateTime?
+
+  prescribedBy String?
+  indication   String?
+
+  createdAt  DateTime @default(now())
+
+  @@index([patientId])
+}
+
+model Consent {
+  id         String   @id @default(uuid())
+
+  patientId  String
+  patient    Patient  @relation(fields: [patientId], references: [id], onDelete: Cascade)
+
+  type       String   // 'data_sharing', 'research', 'government'
+  status     String   @default("active")
+
+  grantedAt  DateTime @default(now())
+  revokedAt  DateTime?
+
+  @@index([patientId])
+}
+
+model MedicineStock {
+  id          String   @id @default(uuid())
+
+  facilityId  String
+  facility    Facility @relation(fields: [facilityId], references: [id], onDelete: Cascade)
+
+  medicineName String
+  currentStock Int
+  dailyUsage   Float
+  reorderLevel Int?
+
+  lastRestock  DateTime?
+  expiryDate   DateTime?
+
+  updatedAt    DateTime @updatedAt
+
+  @@index([facilityId])
+  @@index([medicineName])
 }

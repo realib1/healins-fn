@@ -1,29 +1,60 @@
-import { Injectable } from '@nestjs/common';
-import { AuditRecord } from '../common/healins-types';
-
-const auditEntries: AuditRecord[] = [
-  {
-    id: 'audit-001',
-    actor: 'Dr. Sarah Mensah',
-    action: 'Viewed patient record',
-    target: 'pat-001',
-    timestamp: '2026-05-01T08:30:00Z',
-  },
-  {
-    id: 'audit-002',
-    actor: 'Healins system',
-    action: 'Generated forecast summary',
-    target: 'Northern belt',
-    timestamp: '2026-05-01T08:35:00Z',
-  },
-];
+import { Injectable, Logger } from '@nestjs/common';
+import { PrismaService } from '../prisma/prisma.service';
 
 @Injectable()
 export class AuditService {
-  listAuditEntries() {
-    return {
-      count: auditEntries.length,
-      items: auditEntries,
-    };
+  private readonly logger = new Logger(AuditService.name);
+
+  constructor(private prisma: PrismaService) {}
+
+  async logAccess(params: {
+    patientId: string;
+    action: string;
+    doctorName?: string;
+    isEmergency?: boolean;
+    reason?: string;
+    ipAddress?: string;
+  }) {
+    try {
+      return await this.prisma.auditLog.create({
+        data: {
+          patientId: params.patientId,
+          action: params.action,
+          doctorName: params.doctorName,
+          reason: params.reason,
+          isEmergency: params.isEmergency ?? false,
+          ipAddress: params.ipAddress,
+        },
+      });
+    } catch (err) {
+      // If Prisma unavailable, log to console as fallback
+      this.logger.warn('Failed to persist audit log to DB, falling back to console', err as Error);
+      const fallback = {
+        id: `fallback-${Date.now()}`,
+        patientId: params.patientId,
+        action: params.action,
+        doctorName: params.doctorName,
+        reason: params.reason,
+        isEmergency: params.isEmergency ?? false,
+        timestamp: new Date().toISOString(),
+        ipAddress: params.ipAddress,
+      };
+      this.logger.log(JSON.stringify(fallback));
+      return fallback;
+    }
+  }
+
+  async listAuditEntries(patientId: string) {
+    try {
+      const items = await this.prisma.auditLog.findMany({
+        where: { patientId },
+        orderBy: { timestamp: 'desc' },
+        take: 100,
+      });
+      return { count: items.length, items };
+    } catch (err) {
+      this.logger.warn('Failed to read audit logs from DB', err as Error);
+      return { count: 0, items: [] };
+    }
   }
 }
