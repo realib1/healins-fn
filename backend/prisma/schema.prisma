@@ -1,0 +1,71 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// --- FHIR Aligned Domain Entities ---
+
+model Organization {
+  id        String     @id @default(uuid())
+  name      String
+  type      String     // e.g., "Hospital Network", "Clinic Chain"
+  locations Location[]
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+}
+
+model Location {
+  id             String       @id @default(uuid())
+  name           String
+  organizationId String
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  type           String       // e.g., "Hospital", "Clinic"
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+}
+
+model Practitioner {
+  id            String   @id @default(uuid())
+  name          String
+  role          String   // e.g., "Doctor", "Nurse"
+  specialty     String?
+  licenseNumber String   @unique
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Patient {
+  id             String          @id @default(uuid())
+  firstName      String
+  lastName       String
+  dateOfBirth    DateTime
+  gender         String
+  identifier     String          @unique // e.g. National ID
+  clinicalEvents ClinicalEvent[]
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+}
+
+// --- Event Sourcing Ledger ---
+
+model ClinicalEvent {
+  eventId   String   @id @default(uuid())
+  patientId String
+  patient   Patient  @relation(fields: [patientId], references: [id])
+  type      String   // e.g., "EncounterCreated", "DiagnosisConfirmed"
+  actorId   String   // Could be Practitioner ID, System, or Patient
+  payload   Json     // The event payload (flexible schema)
+  timestamp DateTime @default(now())
+  
+  @@index([patientId])
+  @@index([type])
+  @@index([timestamp])
+}

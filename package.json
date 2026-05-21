@@ -1,0 +1,9 @@
+{
+  "name": "healins-workspace",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "docker compose up --build",
+    "dev:local": "bash scripts/dev.sh"
+  }
+}

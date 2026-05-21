@@ -1,0 +1,19 @@
+# Node
+node_modules/
+dist/
+frontend/dist/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+
+# Databases and local state
+*.db
+*.sqlite3
+
+# Tooling caches
+.mypy_cache/
+.pytest_cache/

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Healins | Patient Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#555d7e",
+                    "on-primary-fixed": "#00164e",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#3d4565",
+                    "on-secondary-container": "#555e7f",
+                    "surface-variant": "#e3e1e9",
+                    "surface-bright": "#faf8ff",
+                    "outline-variant": "#c5c5d3",
+                    "on-tertiary-fixed-variant": "#773205",
+                    "surface-container": "#eeedf4",
+                    "on-background": "#1a1b21",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#dad9e1",
+                    "surface-container-low": "#f4f3fa",
+                    "on-primary-container": "#90a8ff",
+                    "inverse-on-surface": "#f1f0f7",
+                    "tertiary": "#4b1c00",
+                    "secondary-fixed-dim": "#bdc5eb",
+                    "secondary-container": "#d0d8ff",
+                    "error": "#ba1a1a",
+                    "on-surface": "#1a1b21",
+                    "on-tertiary-container": "#f39461",
+                    "surface": "#faf8ff",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#b6c4ff",
+                    "on-secondary-fixed": "#111a37",
+                    "background": "#faf8ff",
+                    "on-primary-fixed-variant": "#264191",
+                    "outline": "#757682",
+                    "on-error-container": "#93000a",
+                    "primary": "#00236f",
+                    "on-surface-variant": "#444651",
+                    "primary-fixed": "#dce1ff",
+                    "on-tertiary": "#ffffff",
+                    "on-error": "#ffffff",
+                    "primary-container": "#1e3a8a",
+                    "inverse-surface": "#2f3036",
+                    "surface-container-highest": "#e3e1e9",
+                    "surface-container-high": "#e9e7ef",
+                    "secondary-fixed": "#dce1ff",
+                    "tertiary-container": "#6e2c00",
+                    "tertiary-fixed": "#ffdbcb",
+                    "on-tertiary-fixed": "#341100",
+                    "inverse-primary": "#b6c4ff",
+                    "surface-tint": "#4059aa",
+                    "tertiary-fixed-dim": "#ffb691"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .soft-lift { transition: transform 0.2s ease-out; }
+        .soft-lift:active { transform: translateY(2px); }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-[#faf8ff]/80 backdrop-blur-md shadow-[0px_32px_64px_rgba(26,27,33,0.06)] h-20">
+<div class="flex justify-between items-center px-8 h-full w-full max-w-screen-2xl mx-auto">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary-container text-2xl">clinical_notes</span>
+<span class="text-2xl font-extrabold tracking-tighter text-[#1E3A8A]">Healins</span>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-[#1E3A8A] font-bold border-b-2 border-[#1E3A8A] py-1" href="#">Home</a>
+<a class="text-[#444651] font-medium hover:text-[#1E3A8A] transition-all" href="#">Timeline</a>
+<a class="text-[#444651] font-medium hover:text-[#1E3A8A] transition-all" href="#">Access</a>
+<a class="text-[#444651] font-medium hover:text-[#1E3A8A] transition-all" href="#">Profile</a>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#444651] cursor-pointer hover:bg-[#f4f3fa] p-2 rounded-full transition-all">search</span>
+<span class="material-symbols-outlined text-[#444651] cursor-pointer hover:bg-[#f4f3fa] p-2 rounded-full transition-all">account_circle</span>
+</div>
+</div>
+</header>
+<main class="pt-32 px-6 md:px-12 max-w-screen-2xl mx-auto">
+<!-- Header Section -->
+<section class="mb-12">
+<p class="text-label-md font-semibold text-on-surface-variant tracking-wider uppercase mb-2">Patient Dashboard</p>
+<h1 class="text-5xl md:text-6xl font-extrabold tracking-tight text-on-surface">Hello, Latifa</h1>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+<!-- AI Insight Box (The Curated Insight Block) -->
+<div class="lg:col-span-8">
+<div class="bg-primary-container text-on-primary rounded-[2.5rem] p-10 md:p-14 relative overflow-hidden shadow-2xl">
+<div class="relative z-10 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+<div class="max-w-md">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-on-primary-container" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<span class="text-sm font-bold tracking-[0.2em] uppercase opacity-80">AI Clinical Insight</span>
+</div>
+<h2 class="text-3xl md:text-4xl font-bold leading-tight mb-6">You’ve had 3 malaria cases in the last 4 months</h2>
+<p class="text-on-primary-container text-lg leading-relaxed opacity-90">Our analysis suggests a localized pattern. Consider checking your immediate surroundings for stagnant water or scheduling a preventative consultation.</p>
+</div>
+<div class="flex-shrink-0">
+<button class="bg-surface text-primary-container px-8 py-4 rounded-full font-bold text-sm tracking-wide hover:bg-white transition-all shadow-lg active:scale-95">
+                                View Recommendations
+                            </button>
+</div>
+</div>
+<!-- Decorative Element -->
+<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-primary opacity-20 rounded-full blur-[100px]"></div>
+</div>
+<!-- Health Summary Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+<div class="bg-surface-container-low rounded-[2rem] p-8 border border-transparent hover:border-outline-variant/20 transition-all">
+<span class="material-symbols-outlined text-primary mb-4 block">calendar_today</span>
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-widest mb-1">Last visit</p>
+<p class="text-xl font-bold text-on-surface">Oct 24, 2023</p>
+<p class="text-sm text-on-surface-variant mt-2">St. Mary's Clinic</p>
+</div>
+<div class="bg-surface-container-low rounded-[2rem] p-8 border border-transparent hover:border-outline-variant/20 transition-all">
+<span class="material-symbols-outlined text-primary mb-4 block">biotech</span>
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-widest mb-1">Last diagnosis</p>
+<p class="text-xl font-bold text-on-surface">Malaria P.f.</p>
+<p class="text-sm text-on-surface-variant mt-2">Acute Phase</p>
+</div>
+<div class="bg-surface-container-low rounded-[2rem] p-8 border border-transparent hover:border-outline-variant/20 transition-all">
+<span class="material-symbols-outlined text-primary mb-4 block">verified_user</span>
+<p class="text-on-surface-variant text-xs font-bold uppercase tracking-widest mb-1">Status</p>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-emerald-500 rounded-full"></span>
+<p class="text-xl font-bold text-on-surface">Stable</p>
+</div>
+<p class="text-sm text-on-surface-variant mt-2">Recovery phase</p>
+</div>
+</div>
+</div>
+<!-- Side Quick Actions & Contextual Data -->
+<div class="lg:col-span-4 space-y-6">
+<!-- Quick Actions Card -->
+<div class="bg-surface-container-lowest rounded-[2.5rem] p-8 shadow-[0px_16px_48px_rgba(26,27,33,0.04)]">
+<h3 class="text-xl font-bold mb-8">Quick Actions</h3>
+<div class="space-y-4">
+<button class="w-full flex items-center justify-between p-5 bg-surface rounded-2xl group hover:bg-primary-container transition-all">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-white">qr_code_2</span>
+<span class="font-bold text-on-surface group-hover:text-white">Show QR Code</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-white">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-5 bg-surface rounded-2xl group hover:bg-primary-container transition-all">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-white">vpn_key</span>
+<span class="font-bold text-on-surface group-hover:text-white">Grant Access</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-white">chevron_right</span>
+</button>
+<button class="w-full flex items-center justify-between p-5 bg-surface rounded-2xl group hover:bg-primary-container transition-all">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary group-hover:text-white">history</span>
+<span class="font-bold text-on-surface group-hover:text-white">View History</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-white">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Profile Glance -->
+<div class="bg-surface-container-low rounded-[2.5rem] p-8 overflow-hidden relative">
+<img alt="Latifa" class="w-20 h-20 rounded-full object-cover mb-6 border-4 border-white shadow-md" data-alt="Professional portrait of a young woman with a calm expression in a high-key bright medical office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBAIRyypsaD-uYwhHTUzeNw4a5MWMtoVKsLQx9p45hPSZTT1XmSCYGx6mVfe2SehdascvWrsGTL3h11dnkHL7zbzYcHlMIgJMLKcx485Yl60PGeZ2hSov9Mp_NcVcu3CRCXL50fmV_m_cSAthlZ05JKEg5kaX3kUBkF_a1NQ-KqMPFn9m6w-4f9DJ-zJUEuK4T5CWNIqcyhOsqwg2p0-dKk8hOJeGrmGP3rcRzpDsAW1hahbjx5ctzZU7nO1KQq5zsNPXXQaY8_cvs3"/>
+<h4 class="text-2xl font-bold">Latifa Al-Sayed</h4>
+<p class="text-on-surface-variant mb-6">Patient ID: #HL-99281</p>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant opacity-60">Age</p>
+<p class="font-bold">28 Years</p>
+</div>
+<div>
+<p class="text-[10px] uppercase font-bold tracking-widest text-on-surface-variant opacity-60">Blood</p>
+<p class="font-bold">O Positive</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Secondary Section: Recent Activity -->
+<section class="mt-16">
+<div class="flex justify-between items-end mb-8">
+<div>
+<h3 class="text-3xl font-extrabold tracking-tight">Recent Activity</h3>
+<p class="text-on-surface-variant">Your clinical timeline across all providers.</p>
+</div>
+<button class="text-primary font-bold text-sm underline decoration-2 underline-offset-4">See all timeline</button>
+</div>
+<div class="space-y-4">
+<div class="bg-surface-container-low p-6 md:p-8 rounded-[2rem] flex flex-col md:flex-row md:items-center justify-between gap-6 hover:bg-white hover:shadow-xl transition-all cursor-pointer">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-primary-container shadow-sm">
+<span class="material-symbols-outlined text-3xl">vaccines</span>
+</div>
+<div>
+<p class="text-sm font-bold text-primary mb-1">Immunization</p>
+<h4 class="text-xl font-bold">Influenza Vaccine (Standard Dose)</h4>
+<p class="text-on-surface-variant">Administered by Dr. Kareem at City Central</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold text-on-surface">Yesterday, 14:20</p>
+<p class="text-sm text-on-surface-variant">Completed</p>
+</div>
+</div>
+<div class="bg-surface-container-low p-6 md:p-8 rounded-[2rem] flex flex-col md:flex-row md:items-center justify-between gap-6 hover:bg-white hover:shadow-xl transition-all cursor-pointer">
+<div class="flex items-center gap-6">
+<div class="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-primary-container shadow-sm">
+<span class="material-symbols-outlined text-3xl">labs</span>
+</div>
+<div>
+<p class="text-sm font-bold text-primary mb-1">Laboratory Test</p>
+<h4 class="text-xl font-bold">Full Blood Count (FBC)</h4>
+<p class="text-on-surface-variant">Results available for download</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-bold text-on-surface">Oct 20, 09:15</p>
+<p class="text-sm text-on-surface-variant">Reviewed</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FAB -->
+<button class="fixed bottom-32 right-8 w-16 h-16 bg-primary-container text-on-primary rounded-full shadow-2xl flex items-center justify-center z-50 hover:scale-105 transition-transform active:scale-95">
+<span class="material-symbols-outlined text-3xl" style="font-variation-settings: 'FILL' 1;">add</span>
+</button>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-10 pt-4 bg-[#ffffff]/90 backdrop-blur-2xl shadow-[0px_-16px_48px_rgba(26,27,33,0.04)] rounded-t-[2rem] z-50 md:hidden">
+<a class="flex flex-col items-center justify-center bg-[#f4f3fa] text-[#1E3A8A] rounded-2xl px-6 py-2.5" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="font-manrope text-[11px] font-semibold tracking-wide uppercase mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#444651] opacity-60 px-6 py-2.5 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined">event_note</span>
+<span class="font-manrope text-[11px] font-semibold tracking-wide uppercase mt-1">Timeline</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#444651] opacity-60 px-6 py-2.5 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined">key</span>
+<span class="font-manrope text-[11px] font-semibold tracking-wide uppercase mt-1">Access</span>
+</a>
+<a class="flex flex-col items-center justify-center text-[#444651] opacity-60 px-6 py-2.5 hover:opacity-100 transition-opacity" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="font-manrope text-[11px] font-semibold tracking-wide uppercase mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

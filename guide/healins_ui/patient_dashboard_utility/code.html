@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Healins - Patient Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;family=Public+Sans:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#d8dadc",
+                        "surface-container-low": "#f2f4f6",
+                        "on-background": "#191c1e",
+                        "on-primary": "#ffffff",
+                        "inverse-on-surface": "#eff1f3",
+                        "on-primary-container": "#90a8ff",
+                        "tertiary": "#4b1c00",
+                        "secondary-container": "#d0d8ff",
+                        "secondary-fixed-dim": "#bdc5eb",
+                        "secondary": "#555d7e",
+                        "on-secondary-fixed-variant": "#3d4565",
+                        "on-secondary-container": "#555e7f",
+                        "on-primary-fixed": "#00164e",
+                        "on-secondary": "#ffffff",
+                        "outline-variant": "#c5c5d3",
+                        "on-tertiary-fixed-variant": "#773205",
+                        "surface-variant": "#e0e3e5",
+                        "surface-bright": "#f7f9fb",
+                        "surface-container": "#eceef0",
+                        "primary-fixed": "#dce1ff",
+                        "on-surface-variant": "#444651",
+                        "primary-container": "#1e3a8a",
+                        "on-tertiary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#6e2c00",
+                        "tertiary-fixed": "#ffdbcb",
+                        "inverse-surface": "#2d3133",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-container-high": "#e6e8ea",
+                        "secondary-fixed": "#dce1ff",
+                        "on-tertiary-fixed": "#341100",
+                        "inverse-primary": "#b6c4ff",
+                        "surface-tint": "#4059aa",
+                        "tertiary-fixed-dim": "#ffb691",
+                        "on-tertiary-container": "#f39461",
+                        "surface": "#f7f9fb",
+                        "on-surface": "#191c1e",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed": "#111a37",
+                        "background": "#f7f9fb",
+                        "on-primary-fixed-variant": "#264191",
+                        "primary": "#00236f",
+                        "outline": "#757682",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Public Sans"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .glass-header {
+            background: rgba(247, 249, 251, 0.85);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body min-h-screen pb-20">
+<!-- TopAppBar -->
+<header class="bg-[#f7f9fb]/85 dark:bg-slate-900/85 backdrop-blur-xl border-b border-[#c5c5d3]/30 dark:border-slate-700/30 docked full-width top-0 sticky z-50 flex justify-between items-center w-full px-3 h-12">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[#1E3A8A] dark:text-blue-400" data-icon="clinical_notes">clinical_notes</span>
+<h1 class="text-[#1E3A8A] dark:text-blue-300 font-extrabold text-lg tracking-tighter uppercase">Healins</h1>
+</div>
+<div class="flex items-center gap-3">
+<div class="hidden md:flex gap-4">
+<span class="font-['Manrope'] font-bold text-sm tracking-tight text-[#1E3A8A] dark:text-blue-400">Status</span>
+<span class="font-['Manrope'] font-bold text-sm tracking-tight text-slate-500 dark:text-slate-400">Patients</span>
+<span class="font-['Manrope'] font-bold text-sm tracking-tight text-slate-500 dark:text-slate-400">Vitals</span>
+</div>
+<img alt="Doctor Profile" class="w-8 h-8 rounded-full border border-outline-variant/30" data-alt="professional portrait of a medical doctor in a clinical setting with soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg7BbxiJAy35FZWEQJaqxg7ABlyK-h_4TdCQKu8A9oo6VD64950qOxy4GfWAl4xdDheYDeJfZVOME8EhsoDssyf77cAf7rOnzJvWQf3fQD0beoNIK5_n0pyd-uH98lYrf-PexPT9PoxRhbRMQ5nrbVlpiklM-hrRXseoXYBZqCZEhW5ykBRDMDrIGtVIfwAvtXYE1935fR1iAyi9mGAzPx9R05LbXmzfVeYt1RPPwpRDYqcsZ_le4xyEyqlSbuQGzgZFL78xbvEia4"/>
+</div>
+</header>
+<main class="max-w-5xl mx-auto p-3 space-y-3">
+<!-- Quick Action Tiles (Asymmetric Grid) -->
+<section class="grid grid-cols-2 md:grid-cols-4 gap-2">
+<button class="bg-surface-container-lowest border border-outline-variant/30 p-3 flex flex-col items-start gap-2 transition-all duration-200 active:scale-95 text-left">
+<span class="material-symbols-outlined text-primary" data-icon="add_box">add_box</span>
+<span class="font-label font-bold text-[10px] uppercase tracking-widest text-on-surface-variant">New Intake</span>
+</button>
+<button class="bg-surface-container-lowest border border-outline-variant/30 p-3 flex flex-col items-start gap-2 transition-all duration-200 active:scale-95 text-left">
+<span class="material-symbols-outlined text-primary" data-icon="event">event</span>
+<span class="font-label font-bold text-[10px] uppercase tracking-widest text-on-surface-variant">Schedule</span>
+</button>
+<button class="bg-surface-container-lowest border border-outline-variant/30 p-3 flex flex-col items-start gap-2 transition-all duration-200 active:scale-95 text-left">
+<span class="material-symbols-outlined text-primary" data-icon="prescriptions">prescriptions</span>
+<span class="font-label font-bold text-[10px] uppercase tracking-widest text-on-surface-variant">Scripts</span>
+</button>
+<button class="bg-primary-container text-on-primary p-3 flex flex-col items-start gap-2 transition-all duration-200 active:scale-95 text-left">
+<span class="material-symbols-outlined" data-icon="emergency">emergency</span>
+<span class="font-label font-bold text-[10px] uppercase tracking-widest">Urgent List</span>
+</button>
+</section>
+<!-- AI Insight Box -->
+<section class="bg-tertiary-container/5 border-l-4 border-tertiary-container p-4">
+<div class="flex items-center gap-2 mb-2">
+<span class="material-symbols-outlined text-tertiary-container text-sm" data-icon="auto_awesome" data-weight="fill" style="font-variation-settings: 'FILL' 1;">auto_awesome</span>
+<h2 class="font-label font-bold text-[11px] uppercase tracking-widest text-tertiary-container">Predictive Clinical Insight</h2>
+</div>
+<p class="text-on-surface font-body text-sm leading-snug">
+                Patient <span class="font-bold">#8821</span> shows a 14% deviation in nocturnal heart rate variability. Recommendation: Order baseline EKG and review hydration logs.
+            </p>
+</section>
+<!-- Main Dashboard Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+<!-- Vitals Summary -->
+<div class="md:col-span-2 space-y-3">
+<div class="bg-surface-container-lowest border border-outline-variant/30 p-3">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-headline font-bold text-sm text-[#1E3A8A]">Active Patient Vitals</h3>
+<span class="bg-secondary-container text-on-secondary-container font-label font-bold text-[9px] px-2 py-0.5 rounded-sm uppercase">Real-time</span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+<div class="bg-surface-container-low p-2 border-l-2 border-primary">
+<span class="font-label font-bold text-[10px] text-on-surface-variant block mb-1 uppercase">Blood Pressure</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline font-extrabold text-xl tracking-tight">118/76</span>
+<span class="text-[10px] text-on-surface-variant font-medium uppercase">mmHg</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-2 border-l-2 border-tertiary">
+<span class="font-label font-bold text-[10px] text-on-surface-variant block mb-1 uppercase">Heart Rate</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline font-extrabold text-xl tracking-tight">72</span>
+<span class="text-[10px] text-on-surface-variant font-medium uppercase">bpm</span>
+</div>
+</div>
+<div class="bg-surface-container-low p-2 border-l-2 border-secondary">
+<span class="font-label font-bold text-[10px] text-on-surface-variant block mb-1 uppercase">SpO2</span>
+<div class="flex items-baseline gap-1">
+<span class="font-headline font-extrabold text-xl tracking-tight">98</span>
+<span class="text-[10px] text-on-surface-variant font-medium uppercase">%</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-outline-variant/10">
+<div class="h-32 w-full flex items-end gap-1">
+<!-- Simple Bar Chart Representation -->
+<div class="bg-primary/20 w-full h-[40%] rounded-t-sm"></div>
+<div class="bg-primary/20 w-full h-[55%] rounded-t-sm"></div>
+<div class="bg-primary/20 w-full h-[45%] rounded-t-sm"></div>
+<div class="bg-primary/20 w-full h-[70%] rounded-t-sm"></div>
+<div class="bg-primary/20 w-full h-[60%] rounded-t-sm"></div>
+<div class="bg-primary/40 w-full h-[85%] rounded-t-sm"></div>
+<div class="bg-primary/20 w-full h-[50%] rounded-t-sm"></div>
+<div class="bg-primary/20 w-full h-[65%] rounded-t-sm"></div>
+<div class="bg-primary/20 w-full h-[40%] rounded-t-sm"></div>
+<div class="bg-primary/60 w-full h-[95%] rounded-t-sm"></div>
+</div>
+<div class="flex justify-between mt-2">
+<span class="font-label text-[9px] text-on-surface-variant font-bold">08:00</span>
+<span class="font-label text-[9px] text-on-surface-variant font-bold">12:00</span>
+<span class="font-label text-[9px] text-on-surface-variant font-bold">16:00</span>
+<span class="font-label text-[9px] text-on-surface-variant font-bold">20:00</span>
+</div>
+</div>
+</div>
+<!-- Recent Logs List -->
+<div class="bg-surface-container-lowest border border-outline-variant/30 p-3">
+<h3 class="font-headline font-bold text-sm text-[#1E3A8A] mb-3">Clinical Activity Log</h3>
+<div class="space-y-2">
+<div class="flex items-center justify-between p-2 hover:bg-surface-container-low transition-colors duration-150 rounded-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-lg" data-icon="pill">pill</span>
+<div>
+<p class="text-xs font-semibold">Lisinopril 10mg Dispensed</p>
+<p class="text-[10px] text-on-surface-variant">09:42 AM • Pharmacy Auth</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</div>
+<div class="flex items-center justify-between p-2 hover:bg-surface-container-low transition-colors duration-150 rounded-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-lg" data-icon="biotech">biotech</span>
+<div>
+<p class="text-xs font-semibold">CBC Panel Results Uploaded</p>
+<p class="text-[10px] text-on-surface-variant">08:15 AM • Central Lab</p>
+</div>
+</div>
+<span class="bg-tertiary-container text-on-tertiary-container font-label font-bold text-[8px] px-1.5 py-0.5 rounded-sm uppercase">Alert</span>
+</div>
+<div class="flex items-center justify-between p-2 hover:bg-surface-container-low transition-colors duration-150 rounded-sm">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-lg" data-icon="edit_note">edit_note</span>
+<div>
+<p class="text-xs font-semibold">Post-Op Progress Note</p>
+<p class="text-[10px] text-on-surface-variant">07:30 AM • Dr. Aris</p>
+</div>
+</div>
+<span class="material-symbols-outlined text-outline" data-icon="chevron_right">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Side Context: Patient Detail / Status -->
+<div class="space-y-3">
+<div class="bg-surface-container-lowest border border-outline-variant/30 p-3">
+<div class="flex items-center gap-3 mb-4">
+<img alt="Patient Avatar" class="w-12 h-12 rounded-sm" data-alt="close-up portrait of an elderly man with a kind expression in a bright clinical room" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKU0GPAJFtzxXEEYYmBSVetaE9fMqHOKHy2yx4oyXxs96T8Sz6mhz9Nv0igi_tt9Vuf-EvvtI_uQVS9gJ14BDbh1SKMykEnBuini9b3YdGq7H_MGohdM1s7FUA4aaBgGBBGV492GW26RIEKNpWXA_q_SnT_rXUX7Y2v6Ou6l3TrPZallaIJwOtuCaeWTad6RB0z2WVHhu3IW75wXUELRLmrUEsigpSh-M-ostWqVka4fP-09YsmGMwrUZfNX6jJLOiKhbV7UxTj7_a"/>
+<div>
+<h2 class="font-headline font-extrabold text-base leading-tight">James Dalton</h2>
+<p class="text-[10px] font-label font-bold text-on-surface-variant uppercase tracking-tighter">ID: 10032-X • AGE: 68</p>
+</div>
+</div>
+<div class="space-y-3">
+<div>
+<span class="font-label font-bold text-[9px] text-on-surface-variant uppercase">Current Status</span>
+<div class="mt-1 flex items-center gap-2">
+<div class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div>
+<span class="text-xs font-bold text-on-surface">Stable • Recovery Wing B</span>
+</div>
+</div>
+<div>
+<span class="font-label font-bold text-[9px] text-on-surface-variant uppercase">Primary Diagnosis</span>
+<p class="text-xs text-on-surface font-medium">Acute Myocardial Infarction</p>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low border border-outline-variant/30 p-3">
+<h3 class="font-label font-bold text-[10px] text-on-surface-variant uppercase mb-3 tracking-widest">Next Procedures</h3>
+<ul class="space-y-4">
+<li class="relative pl-4 border-l border-outline">
+<div class="absolute -left-[4.5px] top-1 w-2 h-2 rounded-full bg-primary"></div>
+<p class="text-xs font-bold">Echocardiogram</p>
+<p class="text-[10px] text-on-surface-variant">Today • 14:00</p>
+</li>
+<li class="relative pl-4 border-l border-outline">
+<div class="absolute -left-[4.5px] top-1 w-2 h-2 rounded-full bg-outline"></div>
+<p class="text-xs font-bold">Physical Therapy</p>
+<p class="text-[10px] text-on-surface-variant">Tomorrow • 09:30</p>
+</li>
+</ul>
+</div>
+<!-- Emergency Contact Card -->
+<div class="bg-white border border-outline-variant/30 p-3">
+<span class="font-label font-bold text-[9px] text-on-surface-variant uppercase block mb-2">Emergency Contact</span>
+<div class="flex items-center justify-between">
+<div>
+<p class="text-xs font-bold">Sarah Dalton</p>
+<p class="text-[10px] text-on-surface-variant">Spouse • (555) 012-3456</p>
+</div>
+<button class="bg-surface-container-low p-1.5 rounded-sm">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="call">call</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center h-14 bg-white dark:bg-slate-950 border-t border-[#c5c5d3]/30 px-2 pb-safe">
+<a class="flex flex-col items-center justify-center bg-[#f2f4f6] dark:bg-slate-800 text-[#1E3A8A] dark:text-blue-200 rounded-[4px] py-1 px-3 transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-['Public_Sans'] font-bold text-[10px] uppercase tracking-widest">Status</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-500 py-1 px-3 hover:text-[#1E3A8A] dark:hover:text-blue-300 transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="groups">groups</span>
+<span class="font-['Public_Sans'] font-bold text-[10px] uppercase tracking-widest">Patients</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-500 py-1 px-3 hover:text-[#1E3A8A] dark:hover:text-blue-300 transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span class="font-['Public_Sans'] font-bold text-[10px] uppercase tracking-widest">Vitals</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-500 py-1 px-3 hover:text-[#1E3A8A] dark:hover:text-blue-300 transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-['Public_Sans'] font-bold text-[10px] uppercase tracking-widest">Logs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-500 py-1 px-3 hover:text-[#1E3A8A] dark:hover:text-blue-300 transition-colors duration-150" href="#">
+<span class="material-symbols-outlined" data-icon="grid_view">grid_view</span>
+<span class="font-['Public_Sans'] font-bold text-[10px] uppercase tracking-widest">Menu</span>
+</a>
+</nav>
+</body></html>

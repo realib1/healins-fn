@@ -1,0 +1,30 @@
+Here's the full structure and how it fits together:
+payments/
+├── base.py              ← abstract interface + shared models (Money, PaymentStatus, etc.)
+├── service.py           ← PaymentService — the ONLY thing your app imports
+└── providers/
+    ├── mtn.py           ← MTN MoMo implementation (ready to test)
+    └── telecel.py       ← Telecel stub (fill in when sandbox approved)
+
+app/
+└── payments_router.py   ← drop into your existing FastAPI app
+
+Drop-in to your existing main.py:
+pythonfrom contextlib import asynccontextmanager
+from fastapi import FastAPI
+from app.payments_router import router as payments_router, init_payment_service
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    init_payment_service()   # registers MTN (+ others when ready)
+    yield
+
+app = FastAPI(lifespan=lifespan)
+app.include_router(payments_router, prefix="/payments")
+
+The key design principle: your app never imports MTNMoMoProvider directly — only PaymentService. When Telecel sandbox gets approved, you fill in telecel.py and add one line to init_payment_service(). Zero changes anywhere else.
+Your immediate next step — test the MTN sandbox with:
+bashcurl -X POST http://localhost:8000/payments/collect \
+  -H "Content-Type: application/json" \
+  -d '{"provider":"mtn","msisdn":"0241234567","amount":1.00,"payer_message":"Test"}'
+

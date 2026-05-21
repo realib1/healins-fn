@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Medical History Timeline - Healins</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@700;800&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#90a8ff",
+                    "inverse-on-surface": "#f1f0f7",
+                    "on-background": "#1a1b21",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#dad9e1",
+                    "surface-container-low": "#f4f3fa",
+                    "secondary-container": "#6cf8bb",
+                    "secondary-fixed-dim": "#4edea3",
+                    "tertiary": "#5c0008",
+                    "on-primary-fixed": "#00164e",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#005236",
+                    "on-secondary-container": "#00714d",
+                    "secondary": "#006c49",
+                    "surface-container": "#eeedf4",
+                    "surface-variant": "#e3e1e9",
+                    "surface-bright": "#faf8ff",
+                    "outline-variant": "#c5c5d3",
+                    "on-tertiary-fixed-variant": "#930013",
+                    "on-error": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "primary-container": "#1e3a8a",
+                    "on-surface-variant": "#444651",
+                    "primary-fixed": "#dce1ff",
+                    "on-tertiary-fixed": "#410004",
+                    "inverse-primary": "#b6c4ff",
+                    "surface-tint": "#4059aa",
+                    "tertiary-fixed-dim": "#ffb3ad",
+                    "inverse-surface": "#2f3036",
+                    "surface-container-highest": "#e3e1e9",
+                    "surface-container-high": "#e9e7ef",
+                    "secondary-fixed": "#6ffbbe",
+                    "tertiary-container": "#860011",
+                    "tertiary-fixed": "#ffdad7",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#b6c4ff",
+                    "on-surface": "#1a1b21",
+                    "error": "#ba1a1a",
+                    "on-tertiary-container": "#ff8a83",
+                    "surface": "#faf8ff",
+                    "outline": "#757682",
+                    "on-error-container": "#93000a",
+                    "primary": "#00236f",
+                    "on-secondary-fixed": "#002113",
+                    "background": "#faf8ff",
+                    "on-primary-fixed-variant": "#264191"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "1rem",
+                    "xl": "1.5rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-gradient {
+            background: linear-gradient(135deg, #00236f 0%, #1e3a8a 100%);
+        }
+        .ambient-shadow {
+            box-shadow: 0 12px 40px rgba(26, 27, 33, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<header class="fixed top-0 w-full z-50 bg-slate-50/80 backdrop-blur-md">
+<div class="flex justify-between items-center px-6 h-16 w-full max-w-screen-xl mx-auto">
+<span class="text-2xl font-extrabold tracking-tighter text-blue-900">Healins</span>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-slate-200/50 transition-colors">
+<span class="material-symbols-outlined text-blue-900" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-lg mx-auto">
+<div class="mb-10">
+<h1 class="font-headline font-extrabold text-3xl tracking-tight text-on-surface mb-2">Medical History</h1>
+<p class="text-on-surface-variant font-medium">Your verified health journey and clinical records.</p>
+</div>
+<div class="relative">
+<div class="absolute left-[11px] top-4 bottom-4 w-0.5 bg-primary-fixed-dim"></div>
+<div class="space-y-12">
+<!-- Entry 1 -->
+<div class="relative pl-10">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary-container border-4 border-surface z-10"></div>
+<div class="bg-surface-container-lowest rounded-xl p-6 ambient-shadow ring-1 ring-outline-variant/15 transition-all active:scale-95 active:opacity-80">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="font-label text-[10px] uppercase tracking-widest text-primary font-bold">Oct 12, 2023</span>
+<h3 class="font-headline text-xl font-bold text-on-surface mt-1">Malaria</h3>
+</div>
+<span class="material-symbols-outlined text-primary-container" data-icon="medical_services">medical_services</span>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="location_on">location_on</span>
+<span class="text-sm font-medium text-on-surface-variant">Ridge Medical Center</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3">
+<div class="flex flex-col">
+<span class="font-label text-[10px] uppercase tracking-wider text-on-surface-variant font-bold mb-1">Treatment Protocol</span>
+<span class="text-sm text-on-surface font-semibold">Quinine</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Entry 2 -->
+<div class="relative pl-10">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-primary-fixed-dim border-4 border-surface z-10"></div>
+<div class="bg-surface-container-lowest rounded-xl p-6 ambient-shadow ring-1 ring-outline-variant/15 transition-all active:scale-95 active:opacity-80">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="font-label text-[10px] uppercase tracking-widest text-primary font-bold">Aug 15, 2023</span>
+<h3 class="font-headline text-xl font-bold text-on-surface mt-1">Typhoid</h3>
+</div>
+<span class="material-symbols-outlined text-primary-container" data-icon="health_and_safety">health_and_safety</span>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="apartment">apartment</span>
+<span class="text-sm font-medium text-on-surface-variant">Korle-Bu Hospital</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3">
+<div class="flex flex-col">
+<span class="font-label text-[10px] uppercase tracking-wider text-on-surface-variant font-bold mb-1">Treatment Protocol</span>
+<span class="text-sm text-on-surface font-semibold">Antibiotics</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Entry 3 -->
+<div class="relative pl-10">
+<div class="absolute left-0 top-1 w-6 h-6 rounded-full bg-outline-variant border-4 border-surface z-10"></div>
+<div class="bg-surface-container-lowest rounded-xl p-6 ambient-shadow ring-1 ring-outline-variant/15 transition-all active:scale-95 active:opacity-80">
+<div class="flex justify-between items-start mb-4">
+<div>
+<span class="font-label text-[10px] uppercase tracking-widest text-primary font-bold">June 02, 2023</span>
+<h3 class="font-headline text-xl font-bold text-on-surface mt-1">Seasonal Fever</h3>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="thermostat">thermostat</span>
+</div>
+<div class="space-y-3">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-sm" data-icon="clinical_notes">clinical_notes</span>
+<span class="text-sm font-medium text-on-surface-variant">Private Clinic</span>
+</div>
+<div class="bg-surface-container-low rounded-lg p-3 border-l-4 border-outline-variant">
+<span class="text-sm italic text-on-surface-variant">Outpatient consultation, rest recommended.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-12 p-6 rounded-xl bg-primary-fixed editorial-gradient text-on-primary">
+<h4 class="font-headline font-bold text-lg mb-2">Clinical Note</h4>
+<p class="text-sm opacity-90 leading-relaxed">This timeline represents verified records from registered healthcare providers. For missing entries, please contact the respective facility.</p>
+</div>
+</main>
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-slate-50/80 backdrop-blur-md border-t border-slate-200/20 shadow-[0_-4px_20px_rgba(26,27,33,0.04)] z-50">
+<a class="flex flex-col items-center justify-center text-slate-500 px-5 py-1.5 hover:text-blue-800 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-100 text-blue-900 rounded-2xl px-5 py-1.5 transition-transform duration-200 active:scale-90" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Timeline</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-5 py-1.5 hover:text-blue-800 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="qr_code_2">qr_code_2</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Access</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-5 py-1.5 hover:text-blue-800 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

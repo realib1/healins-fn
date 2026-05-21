@@ -1,0 +1,6 @@
+TrustCircle
+
+Admin
+Username: admin
+Email: admin@trustcircle.local
+Password: TrustCircle@2026

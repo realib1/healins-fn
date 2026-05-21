@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Health Profile | Healins</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-container": "#90a8ff",
+                    "inverse-on-surface": "#f1f0f7",
+                    "on-background": "#1a1b21",
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-dim": "#dad9e1",
+                    "surface-container-low": "#f4f3fa",
+                    "secondary-container": "#6cf8bb",
+                    "secondary-fixed-dim": "#4edea3",
+                    "tertiary": "#5c0008",
+                    "on-primary-fixed": "#00164e",
+                    "on-secondary": "#ffffff",
+                    "on-secondary-fixed-variant": "#005236",
+                    "on-secondary-container": "#00714d",
+                    "secondary": "#006c49",
+                    "surface-container": "#eeedf4",
+                    "surface-variant": "#e3e1e9",
+                    "surface-bright": "#faf8ff",
+                    "outline-variant": "#c5c5d3",
+                    "on-tertiary-fixed-variant": "#930013",
+                    "on-error": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "primary-container": "#1e3a8a",
+                    "on-surface-variant": "#444651",
+                    "primary-fixed": "#dce1ff",
+                    "on-tertiary-fixed": "#410004",
+                    "inverse-primary": "#b6c4ff",
+                    "surface-tint": "#4059aa",
+                    "tertiary-fixed-dim": "#ffb3ad",
+                    "inverse-surface": "#2f3036",
+                    "surface-container-highest": "#e3e1e9",
+                    "surface-container-high": "#e9e7ef",
+                    "secondary-fixed": "#6ffbbe",
+                    "tertiary-container": "#860011",
+                    "tertiary-fixed": "#ffdad7",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#b6c4ff",
+                    "on-surface": "#1a1b21",
+                    "error": "#ba1a1a",
+                    "on-tertiary-container": "#ff8a83",
+                    "surface": "#faf8ff",
+                    "outline": "#757682",
+                    "on-error-container": "#93000a",
+                    "primary": "#00236f",
+                    "on-secondary-fixed": "#002113",
+                    "background": "#faf8ff",
+                    "on-primary-fixed-variant": "#264191"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "1rem",
+                    "xl": "1.25rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .vitality-glow {
+            background: radial-gradient(circle at 20% 30%, #dce1ff 0%, transparent 70%);
+        }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased vitality-glow min-h-screen">
+<!-- Top Navigation Anchor -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/80 backdrop-blur-md">
+<div class="flex justify-between items-center px-6 h-16 w-full max-w-screen-xl mx-auto">
+<h1 class="text-2xl font-extrabold tracking-tighter text-blue-900">Healins</h1>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-slate-200/50 transition-colors text-blue-900">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-20 pb-32 px-6 max-w-md mx-auto">
+<!-- Hero Header -->
+<section class="mb-8">
+<h2 class="font-headline font-bold text-3xl tracking-tight text-on-surface mb-2">Health Profile</h2>
+<p class="text-on-surface-variant text-sm">Last updated: Oct 24, 2023</p>
+</section>
+<!-- Bento Grid Vitals -->
+<section class="grid grid-cols-2 gap-4 mb-8">
+<!-- Weight Card -->
+<div class="bg-surface-container-lowest p-5 rounded-lg shadow-[0_4px_40px_rgba(26,27,33,0.04)] flex flex-col items-start gap-3 transition-all active:opacity-80 active:scale-95">
+<div class="w-10 h-10 rounded-full bg-primary-fixed flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">weight</span>
+</div>
+<div>
+<p class="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Weight</p>
+<p class="text-2xl font-headline font-extrabold text-blue-900">65<span class="text-sm font-medium ml-1">kg</span></p>
+</div>
+</div>
+<!-- Height Card -->
+<div class="bg-surface-container-lowest p-5 rounded-lg shadow-[0_4px_40px_rgba(26,27,33,0.04)] flex flex-col items-start gap-3 transition-all active:opacity-80 active:scale-95">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">straighten</span>
+</div>
+<div>
+<p class="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Height</p>
+<p class="text-2xl font-headline font-extrabold text-blue-900">170<span class="text-sm font-medium ml-1 text-slate-500">cm</span></p>
+</div>
+</div>
+<!-- Blood Type Card -->
+<div class="bg-surface-container-lowest p-5 rounded-lg shadow-[0_4px_40px_rgba(26,27,33,0.04)] flex flex-col items-start gap-3 transition-all active:opacity-80 active:scale-95">
+<div class="w-10 h-10 rounded-full bg-tertiary-fixed flex items-center justify-center text-tertiary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bloodtype</span>
+</div>
+<div>
+<p class="text-[11px] font-semibold uppercase tracking-wider text-slate-500">Blood Group</p>
+<p class="text-2xl font-headline font-extrabold text-blue-900">O+</p>
+</div>
+</div>
+<!-- BMI Card (Editorial Contrast) -->
+<div class="bg-primary bg-gradient-to-br from-primary to-primary-container p-5 rounded-lg shadow-[0_12px_40px_rgba(0,35,111,0.1)] flex flex-col items-start gap-3 transition-all active:opacity-80 active:scale-95">
+<div class="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center text-white">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+</div>
+<div>
+<p class="text-[11px] font-semibold uppercase tracking-wider text-white/70">BMI Index</p>
+<p class="text-2xl font-headline font-extrabold text-white">22.5</p>
+<span class="text-[10px] px-2 py-0.5 bg-secondary-container text-on-secondary-container rounded-full mt-1 inline-block">Normal Range</span>
+</div>
+</div>
+</section>
+<!-- Editorial Group: Allergies -->
+<section class="mb-8">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-headline font-bold text-xl text-on-surface">Allergies</h3>
+<span class="material-symbols-outlined text-outline">info</span>
+</div>
+<div class="space-y-4">
+<div class="flex items-center justify-between bg-surface-container-low p-4 rounded-xl">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center text-tertiary-container">
+<span class="material-symbols-outlined">medical_services</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Penicillin</p>
+<p class="text-xs text-on-surface-variant">Severe interaction risk</p>
+</div>
+</div>
+<span class="text-xs font-bold text-tertiary-container px-3 py-1 bg-tertiary-fixed rounded-full">High Risk</span>
+</div>
+<div class="flex items-center justify-between bg-surface-container-low p-4 rounded-xl">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-lg bg-surface-container-lowest flex items-center justify-center text-slate-400">
+<span class="material-symbols-outlined">grain</span>
+</div>
+<div>
+<p class="font-bold text-on-surface">Dust</p>
+<p class="text-xs text-on-surface-variant">Environmental sensitivity</p>
+</div>
+</div>
+<span class="text-xs font-bold text-on-surface-variant px-3 py-1 bg-surface-variant rounded-full">Mild</span>
+</div>
+</div>
+</section>
+<!-- Chronic Conditions Section -->
+<section class="mb-12">
+<h3 class="font-headline font-bold text-xl text-on-surface mb-4">Chronic Conditions</h3>
+<div class="relative bg-surface-container-low p-8 rounded-xl flex flex-col items-center justify-center border-2 border-dashed border-outline-variant/30 text-center">
+<div class="w-16 h-16 rounded-full bg-surface-container-lowest flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-secondary text-3xl">verified</span>
+</div>
+<p class="font-bold text-on-surface">None Recorded</p>
+<p class="text-xs text-on-surface-variant mt-1">Your chronic medical history is currently clear.</p>
+<button class="mt-4 text-primary font-bold text-sm hover:underline transition-all">Report condition</button>
+</div>
+</section>
+<!-- Health Summary Image Card -->
+<section class="mb-8">
+<div class="relative h-48 rounded-xl overflow-hidden shadow-xl group">
+<img alt="Health Insights Background" class="w-full h-full object-cover grayscale opacity-80" data-alt="clean medical clinical setting with soft blue lighting and blurred stethoscope on a white surface conveying trust and precision" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0xSOuR7L1Iq2myw34zUHvGMzI3FfN4JhHlphuzlznzvC_xIpmpiZkvVYJtsC1PZmBvdUH77vB4SEf6TpcuSEP9A__B4znKEeFW0vStRbPQfn-wqxYLBVPgW1E_kvBvcenqCmBcglg7A36_s3xU0UQ1XsRyNoFinkvInxJ9a-DBJyam4LwDLCIHJr40FyxKzUaqfPTIzSH11B26zunzrQGSr-yfQelxHRjQ4Nrfsn_flBouB8_D31zOK2reTyHQ5zMxj5jws2yffI7"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/90 to-transparent flex flex-col justify-end p-6">
+<p class="text-white/80 text-xs font-semibold uppercase tracking-widest mb-1">Weekly Insight</p>
+<h4 class="text-white text-lg font-bold">Your metabolic health remains stable.</h4>
+</div>
+</div>
+</section>
+</main>
+<!-- Navigation Shell -->
+<nav class="fixed bottom-0 left-0 w-full bg-slate-50/80 backdrop-blur-md shadow-[0_-4px_20px_rgba(26,27,33,0.04)] border-t border-slate-200/20 z-50 flex justify-around items-center px-4 pb-6 pt-3">
+<a class="flex flex-col items-center justify-center text-slate-500 px-5 py-1.5 hover:text-blue-800 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">home</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-5 py-1.5 hover:text-blue-800 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">event_note</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Timeline</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 px-5 py-1.5 hover:text-blue-800 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined">qr_code_2</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Access</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-100 text-blue-900 rounded-2xl px-5 py-1.5 scale-90 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

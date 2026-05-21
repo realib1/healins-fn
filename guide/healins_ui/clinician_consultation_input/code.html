@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Healins | New Consultation Record</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "surface-tint": "#4059aa",
+                    "on-tertiary-fixed-variant": "#930013",
+                    "error-container": "#ffdad6",
+                    "surface": "#faf8ff",
+                    "on-tertiary-container": "#ff8a83",
+                    "primary-fixed-dim": "#b6c4ff",
+                    "outline-variant": "#c5c5d3",
+                    "inverse-on-surface": "#f1f0f7",
+                    "tertiary-container": "#860011",
+                    "surface-container": "#eeedf4",
+                    "tertiary-fixed-dim": "#ffb3ad",
+                    "secondary-container": "#6cf8bb",
+                    "on-background": "#1a1b21",
+                    "tertiary-fixed": "#ffdad7",
+                    "on-secondary": "#ffffff",
+                    "tertiary": "#5c0008",
+                    "inverse-primary": "#b6c4ff",
+                    "on-surface": "#1a1b21",
+                    "on-primary": "#ffffff",
+                    "secondary-fixed-dim": "#4edea3",
+                    "surface-container-low": "#f4f3fa",
+                    "on-tertiary-fixed": "#410004",
+                    "on-secondary-fixed-variant": "#005236",
+                    "secondary-fixed": "#6ffbbe",
+                    "on-tertiary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "error": "#ba1a1a",
+                    "surface-dim": "#dad9e1",
+                    "surface-container-high": "#e9e7ef",
+                    "on-error": "#ffffff",
+                    "background": "#faf8ff",
+                    "surface-container-highest": "#e3e1e9",
+                    "inverse-surface": "#2f3036",
+                    "primary-fixed": "#dce1ff",
+                    "on-surface-variant": "#444651",
+                    "outline": "#757682",
+                    "on-secondary-container": "#00714d",
+                    "on-primary-container": "#90a8ff",
+                    "on-primary-fixed-variant": "#264191",
+                    "on-error-container": "#93000a",
+                    "secondary": "#006c49",
+                    "primary-container": "#1e3a8a",
+                    "on-primary-fixed": "#00164e",
+                    "surface-variant": "#e3e1e9",
+                    "on-secondary-fixed": "#002113",
+                    "surface-bright": "#faf8ff",
+                    "primary": "#00236f"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "1rem",
+                    "xl": "1.25rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-shadow {
+            box-shadow: 0 12px 40px rgba(26, 27, 33, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen pb-32">
+<!-- TopAppBar -->
+<header class="bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-md fixed top-0 w-full z-50 shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-6 py-4 max-w-md mx-auto">
+<div class="flex items-center gap-3">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors active:scale-95">
+<span class="material-symbols-outlined text-blue-900">arrow_back</span>
+</button>
+<h1 class="text-2xl font-extrabold tracking-tight text-blue-900 dark:text-blue-50">Healins</h1>
+</div>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+<span class="material-symbols-outlined text-blue-900" data-icon="notifications">notifications</span>
+</button>
+<div class="w-8 h-8 rounded-full bg-primary-fixed-dim overflow-hidden ring-2 ring-white">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="Professional portrait of a middle-aged male doctor with a warm smile wearing a stethoscope and white lab coat" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCf5Hp_iMKhEMYn9x2Xayl5Q-OEtPAcEz_nljC50qAwfA5-ibecHcYxrjgrEK3nOK4k5CoJ0TLCyjNzEjjY31BW3DRXyj7cKjxVu_Pe30ASpfEOoSdDoobPx7uYhEJ9TC5dsdcYZpa1fPpGmZVQwaG7hu9E9z349E4wVuNmRsppWuf6uqLnIKivyTYCF3Bmxg-dkH8vYGCEyYM8pErX4Q8bkIarXu9aKbZywiNmdykhNOaTOX28RPEfNranKzUF9_-EUdK7cb62DXD9"/>
+</div>
+</div>
+</div>
+</header>
+<main class="pt-24 px-6 max-w-md mx-auto space-y-8">
+<!-- Hero Header -->
+<section class="space-y-2">
+<p class="text-sm font-semibold tracking-widest text-on-secondary-container uppercase opacity-70">New Record</p>
+<h2 class="text-3xl font-bold text-on-surface leading-tight">Clinical Consultation</h2>
+<div class="h-1 w-12 bg-gradient-to-r from-primary to-primary-container rounded-full"></div>
+</section>
+<!-- Form Container -->
+<form class="space-y-8">
+<!-- Patient Read-Only Card -->
+<div class="bg-surface-container-lowest editorial-shadow rounded-xl p-5 border-l-4 border-primary">
+<div class="flex items-center gap-4">
+<div class="w-14 h-14 rounded-full bg-secondary-container flex items-center justify-center">
+<img alt="Latifa Mohammed" class="w-full h-full object-cover rounded-full" data-alt="Portrait of a young Middle Eastern woman with elegant modest attire and a friendly expression" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDTHl863k939sPn5mfB4qJCAqiaezsKikmZDtzc40D_QvcwVZkIIED2OkwO_v5-q6NuCw8y7ndt-G7RceaetP7iWKGJx3ZulbfvpNrVqdonITyGCVONYRKSCjXaIN9LfK_KAdamFfQKUxWQitet7A8PlFasqJTaTNeW31K_gMimccOQoj7Od102UAJZ9VNWNUm2HpOCPuuWM68n7rriiRL1MFhLn-s83WHtbzvsETYqqGVS2r5gSDaRmTFlS9RnEEyJ1j8dwhH5cfDo"/>
+</div>
+<div>
+<p class="text-xs font-medium text-on-surface-variant mb-0.5">Patient Information</p>
+<h3 class="text-lg font-bold text-on-surface">Latifa Mohammed</h3>
+<p class="text-xs text-on-surface-variant">ID: HL-992384 • Female • 28 yrs</p>
+</div>
+</div>
+</div>
+<!-- Basic Info Grid -->
+<div class="grid grid-cols-1 gap-6">
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface ml-1">Facility Name</label>
+<div class="relative">
+<select class="w-full bg-surface-container-highest border-none rounded-xl px-4 py-4 text-on-surface appearance-none focus:ring-2 focus:ring-primary/20 transition-all">
+<option>City Central Hospital</option>
+<option>West Side Clinic</option>
+<option>Healins Virtual Center</option>
+</select>
+<span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface ml-1">Consultation Date</label>
+<div class="relative">
+<input class="w-full bg-surface-container-highest border-none rounded-xl px-4 py-4 text-on-surface focus:ring-2 focus:ring-primary/20 transition-all" type="date" value="2023-11-24"/>
+</div>
+</div>
+</div>
+<!-- Clinical Inputs -->
+<div class="space-y-8">
+<!-- Symptoms -->
+<div class="space-y-3">
+<div class="flex justify-between items-center px-1">
+<label class="text-sm font-semibold text-on-surface">Reported Symptoms</label>
+<span class="text-[10px] uppercase font-bold text-primary tracking-wider">Add Tag</span>
+</div>
+<div class="bg-surface-container-low rounded-xl p-4 flex flex-wrap gap-2 min-h-[100px] items-start content-start">
+<span class="bg-primary/10 text-primary-container px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1">
+                            Chronic Migraine <span class="material-symbols-outlined text-sm">close</span>
+</span>
+<span class="bg-primary/10 text-primary-container px-3 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1">
+                            Nausea <span class="material-symbols-outlined text-sm">close</span>
+</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs py-1.5 flex-grow min-w-[100px]" placeholder="Type symptom..." type="text"/>
+</div>
+</div>
+<!-- Diagnosis -->
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface ml-1">Clinical Diagnosis</label>
+<input class="w-full bg-surface-container-highest border-none rounded-xl px-4 py-4 text-on-surface placeholder:text-on-surface-variant/50 focus:ring-2 focus:ring-primary/20 focus:bg-surface-bright transition-all border-b-2 border-transparent focus:border-primary" placeholder="Primary medical diagnosis" type="text"/>
+</div>
+<!-- Treatment Plan -->
+<div class="space-y-2">
+<label class="text-sm font-semibold text-on-surface ml-1">Treatment Plan</label>
+<textarea class="w-full bg-surface-container-highest border-none rounded-xl px-4 py-4 text-on-surface placeholder:text-on-surface-variant/50 focus:ring-2 focus:ring-primary/20 focus:bg-surface-bright transition-all resize-none" placeholder="Detailed intervention and follow-up strategy..." rows="4"></textarea>
+</div>
+<!-- Medications -->
+<div class="space-y-3">
+<label class="text-sm font-semibold text-on-surface ml-1">Medications Prescribed</label>
+<div class="space-y-3">
+<div class="flex items-center gap-3 bg-surface-container-lowest editorial-shadow p-3 rounded-lg">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">medication</span>
+</div>
+<div class="flex-grow">
+<p class="text-sm font-bold text-on-surface leading-none">Sumatriptan</p>
+<p class="text-[10px] text-on-surface-variant mt-1">50mg • Once daily as needed</p>
+</div>
+<button class="text-on-surface-variant/40 hover:text-error transition-colors" type="button">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+<button class="w-full py-3 border-2 border-dashed border-outline-variant rounded-xl text-on-surface-variant text-sm font-medium flex items-center justify-center gap-2 hover:bg-surface-container-low transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">add</span>
+                            Add Medication
+                        </button>
+</div>
+</div>
+</div>
+<!-- Primary Action -->
+<div class="pt-4">
+<button class="w-full py-5 bg-gradient-to-r from-primary to-primary-container text-white rounded-full font-bold text-lg tracking-tight editorial-shadow hover:opacity-90 active:scale-[0.98] transition-all flex items-center justify-center gap-3" type="submit">
+<span class="material-symbols-outlined">verified</span>
+                    Save Visit Record
+                </button>
+<p class="text-center text-xs text-on-surface-variant mt-6 italic">Record will be encrypted and shared with patient wallet HL-992384.</p>
+</div>
+</form>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-md flex justify-around items-center px-4 pb-6 pt-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl z-50 rounded-t-3xl">
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-800 transition-all">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="text-[11px] font-medium mt-1">Home</span>
+</div>
+<div class="flex flex-col items-center justify-center bg-blue-100 dark:bg-blue-900/40 text-blue-900 dark:text-blue-100 rounded-2xl px-5 py-2 active:scale-95 transition-all">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="text-[11px] font-medium mt-1">Timeline</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-800 transition-all">
+<span class="material-symbols-outlined" data-icon="vpn_key">vpn_key</span>
+<span class="text-[11px] font-medium mt-1">Access</span>
+</div>
+<div class="flex flex-col items-center justify-center text-slate-400 dark:text-slate-500 px-5 py-2 hover:text-blue-800 transition-all">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="text-[11px] font-medium mt-1">Profile</span>
+</div>
+</nav>
+</body></html>

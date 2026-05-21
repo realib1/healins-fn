@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-container": "#90a8ff",
+                        "inverse-on-surface": "#f1f0f7",
+                        "on-background": "#1a1b21",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-dim": "#dad9e1",
+                        "surface-container-low": "#f4f3fa",
+                        "secondary-container": "#6cf8bb",
+                        "secondary-fixed-dim": "#4edea3",
+                        "tertiary": "#5c0008",
+                        "on-primary-fixed": "#00164e",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-fixed-variant": "#005236",
+                        "on-secondary-container": "#00714d",
+                        "secondary": "#006c49",
+                        "surface-container": "#eeedf4",
+                        "surface-variant": "#e3e1e9",
+                        "surface-bright": "#faf8ff",
+                        "outline-variant": "#c5c5d3",
+                        "on-tertiary-fixed-variant": "#930013",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "primary-container": "#1e3a8a",
+                        "on-surface-variant": "#444651",
+                        "primary-fixed": "#dce1ff",
+                        "on-tertiary-fixed": "#410004",
+                        "inverse-primary": "#b6c4ff",
+                        "surface-tint": "#4059aa",
+                        "tertiary-fixed-dim": "#ffb3ad",
+                        "inverse-surface": "#2f3036",
+                        "surface-container-highest": "#e3e1e9",
+                        "surface-container-high": "#e9e7ef",
+                        "secondary-fixed": "#6ffbbe",
+                        "tertiary-container": "#860011",
+                        "tertiary-fixed": "#ffdad7",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#b6c4ff",
+                        "on-surface": "#1a1b21",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#ff8a83",
+                        "surface": "#faf8ff",
+                        "outline": "#757682",
+                        "on-error-container": "#93000a",
+                        "primary": "#00236f",
+                        "on-secondary-fixed": "#002113",
+                        "background": "#faf8ff",
+                        "on-primary-fixed-variant": "#264191"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .editorial-gradient {
+            background: linear-gradient(135deg, #00236f 0%, #1e3a8a 100%);
+        }
+        .vitality-glow {
+            background: radial-gradient(circle at 50% -20%, #dce1ff 0%, transparent 70%);
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #e3e1e9;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface-variant antialiased min-h-screen vitality-glow">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-md">
+<div class="flex justify-between items-center px-6 h-16 w-full max-w-screen-xl mx-auto">
+<h1 class="text-2xl font-extrabold tracking-tighter text-blue-900 dark:text-blue-100 font-headline">Healins</h1>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-slate-200/50 dark:hover:bg-slate-800/50 transition-colors active:opacity-80 active:scale-95">
+<span class="material-symbols-outlined text-blue-900 dark:text-blue-400">account_circle</span>
+</button>
+</div>
+</div>
+</header>
+<main class="pt-24 pb-32 px-6 max-w-md mx-auto">
+<!-- Hero Section / Editorial Header -->
+<section class="mb-10">
+<h2 class="font-headline text-3xl font-extrabold text-on-surface tracking-tight mb-2">Access Control</h2>
+<p class="text-on-surface-variant text-sm leading-relaxed max-w-[85%]">Manage which healthcare professionals can view your clinical curator record. Your privacy is under your direct supervision.</p>
+</section>
+<!-- Active Access Bento-ish Section -->
+<section class="mb-10">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-headline text-lg font-bold text-on-surface">Active Practitioners</h3>
+<span class="bg-secondary-container text-on-secondary-container text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-widest">Live</span>
+</div>
+<div class="space-y-4">
+<!-- Dr. Sarah Mensah -->
+<div class="bg-surface-container-lowest p-5 rounded-lg border border-outline-variant/15 transition-all hover:bg-surface-container-high">
+<div class="flex items-start justify-between">
+<div class="flex gap-4">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="professional portrait of female doctor in medical setting with soft natural lighting and calm demeanor" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2DfjlG5WRxvq4d1weIoMaTs-fzGlD4bCga7yA283UsaSNEzd6K1yPP3rGxQNpp_0TUE7Dbl5ky91Kkr7LGJ3aEyXFKByFviXMpbYDWKix2B_Wmr80v8th3b5Pj2qiprnNWUg-bL_cL2CjKYEQKECCEIz45AxhTDwzblSgiBxCZTjiDdJwkv6GoFH3FhashlGeAiB6ERK-jZKPnAG2ZNp35YYLt_jgTpk43faNWqlOQ40vcgtKYWKLWFpucTaWVPaIMY053sQUJvXM"/>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-secondary rounded-full border-2 border-white"></div>
+</div>
+<div>
+<p class="font-headline font-bold text-on-surface text-base">Dr. Sarah Mensah</p>
+<p class="text-xs text-on-surface-variant font-medium">Grace Hospital</p>
+<p class="text-[10px] mt-1 text-primary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+                                    Clinical Specialist
+                                </p>
+</div>
+</div>
+<button class="text-tertiary-container font-bold text-xs hover:underline uppercase tracking-tighter transition-all active:scale-95">Revoke</button>
+</div>
+</div>
+<!-- Dr. Kofi Appiah -->
+<div class="bg-surface-container-lowest p-5 rounded-lg border border-outline-variant/15 transition-all hover:bg-surface-container-high">
+<div class="flex items-start justify-between">
+<div class="flex gap-4">
+<div class="relative">
+<img class="w-12 h-12 rounded-full object-cover" data-alt="portrait of confident male physician in modern hospital clinic environment with clinical lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDO6bE53gJ3r6pVnyTmCrHnG_BrwMN6qnSCHMdY660DJTVPmC-gpNWclAouU62yvWl8GRz8134a4NnCxnJiJXMGdydxsTzqNhefPOevpdgQMtTTDmahNxs3j4ojkT4iJm9ggofgAnJULM5gmRpZpzVjfBcF6LKakftRqCgwkRzO3HjZT2DcWp8-znngQnvBCwTLCRBW7l48bQMpHBmE0dDXzLZlvhZ5pVXvOAoiFSTt5Q-zYx89JLVoHOKuHfwrGzTKCuffbOt6zsQq"/>
+<div class="absolute -bottom-1 -right-1 w-4 h-4 bg-secondary rounded-full border-2 border-white"></div>
+</div>
+<div>
+<p class="font-headline font-bold text-on-surface text-base">Dr. Kofi Appiah</p>
+<p class="text-xs text-on-surface-variant font-medium">Ridge Medical</p>
+<p class="text-[10px] mt-1 text-primary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[12px]" style="font-variation-settings: 'FILL' 1;">verified</span>
+                                    General Surgeon
+                                </p>
+</div>
+</div>
+<button class="text-tertiary-container font-bold text-xs hover:underline uppercase tracking-tighter transition-all active:scale-95">Revoke</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Grant Access Section (Interactive Card) -->
+<section class="mb-10">
+<div class="editorial-gradient p-8 rounded-xl text-on-primary">
+<h3 class="font-headline text-xl font-bold mb-2">Grant New Access</h3>
+<p class="text-on-primary-container text-xs mb-6 opacity-90 leading-relaxed">Instantly authorize a professional by entering their Unique ID or Full Name.</p>
+<div class="space-y-4">
+<div class="relative">
+<input class="w-full bg-white/10 border-0 border-b-2 border-white/20 focus:border-white focus:ring-0 text-white placeholder-white/40 font-medium py-3 px-4 rounded-t-lg transition-all" placeholder="Doctor ID or Full Name" type="text"/>
+</div>
+<button class="w-full bg-white text-primary font-bold py-4 rounded-full flex items-center justify-center gap-2 transition-all active:scale-95 shadow-lg">
+<span class="material-symbols-outlined text-xl">person_add</span>
+                        Authorize Access
+                    </button>
+</div>
+</div>
+</section>
+<!-- Access History Section (Vertical Timeline) -->
+<section class="mb-6">
+<h3 class="font-headline text-lg font-bold text-on-surface mb-6">Recent Activity</h3>
+<div class="relative pl-6 space-y-8 h-64 overflow-y-auto pr-2 custom-scrollbar">
+<!-- Timeline Spine -->
+<div class="absolute left-[7px] top-0 bottom-0 w-[2px] bg-primary-fixed-dim"></div>
+<!-- History Item 1 -->
+<div class="relative">
+<div class="absolute -left-[24px] top-1 w-4 h-4 rounded-full bg-primary border-4 border-surface"></div>
+<div>
+<div class="flex justify-between items-start mb-1">
+<p class="font-bold text-sm text-on-surface">Access Granted</p>
+<p class="text-[10px] text-slate-400 font-medium uppercase">2 hours ago</p>
+</div>
+<p class="text-xs text-on-surface-variant">Dr. Sarah Mensah viewed Radiology results for "Chest X-Ray".</p>
+</div>
+</div>
+<!-- History Item 2 -->
+<div class="relative">
+<div class="absolute -left-[24px] top-1 w-4 h-4 rounded-full bg-slate-300 border-4 border-surface"></div>
+<div>
+<div class="flex justify-between items-start mb-1">
+<p class="font-bold text-sm text-on-surface">Access Revoked</p>
+<p class="text-[10px] text-slate-400 font-medium uppercase">Yesterday</p>
+</div>
+<p class="text-xs text-on-surface-variant">Access for Dr. Michael Chen was automatically expired per your privacy policy.</p>
+</div>
+</div>
+<!-- History Item 3 -->
+<div class="relative">
+<div class="absolute -left-[24px] top-1 w-4 h-4 rounded-full bg-primary border-4 border-surface"></div>
+<div>
+<div class="flex justify-between items-start mb-1">
+<p class="font-bold text-sm text-on-surface">Profile Export</p>
+<p class="text-[10px] text-slate-400 font-medium uppercase">Oct 24, 14:20</p>
+</div>
+<p class="text-xs text-on-surface-variant">Ridge Medical downloaded a structured summary for referral processing.</p>
+</div>
+</div>
+<!-- History Item 4 -->
+<div class="relative">
+<div class="absolute -left-[24px] top-1 w-4 h-4 rounded-full bg-tertiary-container border-4 border-surface"></div>
+<div>
+<div class="flex justify-between items-start mb-1">
+<p class="font-bold text-sm text-on-surface">Alert Triggered</p>
+<p class="text-[10px] text-slate-400 font-medium uppercase">Oct 22, 09:12</p>
+</div>
+<p class="text-xs text-on-surface-variant">Unauthorized attempt from unknown terminal (IP: 192.168.1.1) was blocked.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full flex justify-around items-center px-4 pb-6 pt-3 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-md shadow-[0_-4px_20px_rgba(26,27,33,0.04)] z-50 border-t border-slate-200/20 md:hidden">
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-1.5 transition-all hover:text-blue-800 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-1.5 transition-all hover:text-blue-800 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="event_note">event_note</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Timeline</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-blue-100 dark:bg-blue-900/40 text-blue-900 dark:text-blue-100 rounded-2xl px-5 py-1.5 transition-all active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="qr_code_2" style="font-variation-settings: 'FILL' 1;">qr_code_2</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Access</span>
+</a>
+<a class="flex flex-col items-center justify-center text-slate-500 dark:text-slate-400 px-5 py-1.5 transition-all hover:text-blue-800 active:scale-90 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-['Inter'] text-[11px] font-semibold uppercase tracking-wider mt-1">Profile</span>
+</a>
+</nav>
+</body></html>
