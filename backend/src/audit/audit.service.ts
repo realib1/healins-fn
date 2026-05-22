@@ -1,5 +1,5 @@
-import { Injectable, Logger } from '@nestjs/common';
-import { PrismaService } from '../prisma/prisma.service';
+import { Injectable, Logger } from "@nestjs/common";
+import { PrismaService } from "../prisma/prisma.service";
 
 @Injectable()
 export class AuditService {
@@ -10,7 +10,7 @@ export class AuditService {
   async logAccess(params: {
     patientId: string;
     action: string;
-    doctorName?: string;
+    clinicianId?: string;
     isEmergency?: boolean;
     reason?: string;
     ipAddress?: string;
@@ -20,7 +20,7 @@ export class AuditService {
         data: {
           patientId: params.patientId,
           action: params.action,
-          doctorName: params.doctorName,
+          clinicianId: params.clinicianId,
           reason: params.reason,
           isEmergency: params.isEmergency ?? false,
           ipAddress: params.ipAddress,
@@ -28,12 +28,15 @@ export class AuditService {
       });
     } catch (err) {
       // If Prisma unavailable, log to console as fallback
-      this.logger.warn('Failed to persist audit log to DB, falling back to console', err as Error);
+      this.logger.warn(
+        "Failed to persist audit log to DB, falling back to console",
+        err as Error,
+      );
       const fallback = {
         id: `fallback-${Date.now()}`,
         patientId: params.patientId,
         action: params.action,
-        doctorName: params.doctorName,
+        clinicianId: params.clinicianId,
         reason: params.reason,
         isEmergency: params.isEmergency ?? false,
         timestamp: new Date().toISOString(),
@@ -48,12 +51,12 @@ export class AuditService {
     try {
       const items = await this.prisma.auditLog.findMany({
         where: { patientId },
-        orderBy: { timestamp: 'desc' },
+        orderBy: { timestamp: "desc" },
         take: 100,
       });
       return { count: items.length, items };
     } catch (err) {
-      this.logger.warn('Failed to read audit logs from DB', err as Error);
+      this.logger.warn("Failed to read audit logs from DB", err as Error);
       return { count: 0, items: [] };
     }
   }

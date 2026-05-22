@@ -9,6 +9,6 @@ import { PrismaModule } from '../prisma/prisma.module';
   imports: [PrismaModule],
   controllers: [AuditController],
   providers: [AuditService, ClinicalEventsService],
-  exports: [ClinicalEventsService],
+  exports: [ClinicalEventsService, AuditService],
 })
 export class AuditModule {}

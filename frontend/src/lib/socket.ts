@@ -40,7 +40,10 @@ export function useAiInsights() {
     s.on("disconnect", () => setConnected(false));
 
     s.on("AI_INSIGHT_READY", (event: AiInsightEvent) => {
-      setInsights((prev) => [event, ...prev]);
+      setInsights((prev) => {
+        // Limit to 50 recent insights to prevent memory leak
+        return [event, ...prev.slice(0, 49)];
+      });
     });
 
     s.connect();

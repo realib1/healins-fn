@@ -1,11 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 import { api } from "@/lib/api";
+import { PermissionGrantModal } from "@/components/ui/PermissionGrantModal";
 
 interface AuditEntry {
   actor: string;
@@ -22,10 +23,12 @@ const fallbackTimeline = [
 
 export default function PatientDashboard() {
   const [auditLog, setAuditLog] = useState<AuditEntry[]>([]);
+  const [showGrantModal, setShowGrantModal] = useState(false);
+  const patientId = "pat-001"; // prototype static ID
 
-  useEffect(() => {
+  const fetchAuditLog = useCallback(() => {
     api
-      .get<AuditEntry[]>("audit/PAT-123")
+      .get<AuditEntry[]>(`audit/${patientId}`)
       .then(setAuditLog)
       .catch(() => {
         setAuditLog([
@@ -34,7 +37,11 @@ export default function PatientDashboard() {
           { actor: "System", action: "AccessRevoked", detail: "Session expired for Lab Partner", time: "4 days ago · 11:05" },
         ]);
       });
-  }, []);
+  }, [patientId]);
+
+  useEffect(() => {
+    fetchAuditLog();
+  }, [fetchAuditLog]);
 
   return (
     <div className="space-y-8">
@@ -47,13 +54,24 @@ export default function PatientDashboard() {
             Your self-sovereign health record. You control who sees your data, when, and for how long.
           </p>
           <div className="flex gap-3 mt-2">
+            <Button onClick={() => setShowGrantModal(true)}>Grant Access</Button>
             <Link href="/patient/access">
-              <Button>Manage Access & Audit</Button>
+              <Button variant="secondary">Manage Audit Log</Button>
             </Link>
-            <Button variant="secondary">Download Records</Button>
           </div>
         </div>
       </Card>
+
+      {showGrantModal && (
+        <PermissionGrantModal
+          patientId={patientId}
+          onClose={() => setShowGrantModal(false)}
+          onGranted={() => {
+            setShowGrantModal(false);
+            fetchAuditLog(); // refresh audit logs after grant
+          }}
+        />
+      )}
 
       {/* Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
@@ -105,7 +123,7 @@ export default function PatientDashboard() {
                 <div key={i} className="p-3 rounded-xl bg-white border border-sage-100">
                   <div className="flex items-center justify-between">
                     <span className="font-semibold text-sm text-text">{entry.actor}</span>
-                    <Badge tone={entry.action === "AccessGranted" ? "sage" : entry.action === "AccessRevoked" ? "red" : "neutral"} className="text-[0.65rem]">
+                    <Badge tone={entry.action === "GRANT" ? "sage" : entry.action === "REVOKE" ? "red" : "neutral"} className="text-[0.65rem]">
                       {entry.action}
                     </Badge>
                   </div>

@@ -71,7 +71,7 @@ export function Sidebar() {
       {/* Brand */}
       <div className="glass-card p-5">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-sage-500 to-sage-700 flex items-center justify-center shadow-sm">
+          <div className="w-10 h-10 rounded-full bg-linear-to-br from-sage-500 to-sage-700 flex items-center justify-center shadow-sm">
             <span className="text-white font-bold text-lg">H</span>
           </div>
           <div>

@@ -33,9 +33,13 @@ services:
     env_file:
       - ./backend/.env
     environment:
-      DATABASE_URL: postgresql+psycopg://healins:healins@postgres:5432/healins
+      DATABASE_URL: postgresql://healins:healins@postgres:5432/healins
+      REDIS_HOST: redis
+      REDIS_PORT: "6379"
     depends_on:
       postgres:
+        condition: service_healthy
+      redis:
         condition: service_healthy
 
   ai-service:

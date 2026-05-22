@@ -110,7 +110,7 @@ export default function AuthPage() {
     <div className="min-h-screen flex flex-col items-center justify-center p-6">
       {/* Hero */}
       <div className="text-center mb-12 max-w-xl">
-        <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-sage-500 to-sage-700 flex items-center justify-center shadow-lg mx-auto mb-6">
+        <div className="w-16 h-16 rounded-2xl bg-linear-to-br from-sage-500 to-sage-700 flex items-center justify-center shadow-lg mx-auto mb-6">
           <span className="text-white font-bold text-2xl">H</span>
         </div>
         <h1 className="text-3xl font-bold text-text mb-3">Welcome to Healins</h1>
@@ -127,7 +127,7 @@ export default function AuthPage() {
             onClick={() => handleSelect(option)}
             className="group glass-card p-6 text-left cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_-15px_rgba(139,167,151,0.3)]"
           >
-            <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${option.color} flex items-center justify-center text-white shadow-md mb-4 group-hover:scale-110 transition-transform duration-300`}>
+            <div className={`w-14 h-14 rounded-2xl bg-linear-to-br ${option.color} flex items-center justify-center text-white shadow-md mb-4 group-hover:scale-110 transition-transform duration-300`}>
               {option.icon}
             </div>
             <h3 className="text-lg font-bold text-text mb-1">{option.label}</h3>

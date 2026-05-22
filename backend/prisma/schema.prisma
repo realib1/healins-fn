@@ -32,12 +32,18 @@ model Location {
   updatedAt      DateTime     @updatedAt
 }
 
-model Practitioner {
+model Clinician {
   id            String   @id @default(uuid())
   name          String
   role          String   // e.g., "Doctor", "Nurse"
   specialty     String?
   licenseNumber String   @unique
+
+  encounters    Encounter[]
+  permissions   Permission[]
+  auditLogs     AuditLog[]
+  medications   Medication[]
+
   createdAt     DateTime @default(now())
   updatedAt     DateTime @updatedAt
 }
@@ -112,7 +118,8 @@ model Encounter {
   treatment     String?
   medicines     String[]
 
-  providerName  String?
+  clinicianId   String?
+  clinician     Clinician? @relation(fields: [clinicianId], references: [id], onDelete: SetNull)
   notes         String?
 
   createdAt     DateTime @default(now())
@@ -129,7 +136,8 @@ model Permission {
   patientId  String
   patient    Patient  @relation(fields: [patientId], references: [id], onDelete: Cascade)
 
-  doctorName String
+  clinicianId String
+  clinician   Clinician @relation(fields: [clinicianId], references: [id], onDelete: Cascade)
   status     String   @default("active") // active, revoked
 
   grantedAt  DateTime @default(now())
@@ -147,8 +155,9 @@ model AuditLog {
   patientId  String
   patient    Patient  @relation(fields: [patientId], references: [id], onDelete: Cascade)
 
-  action     String   // VIEW, GRANT, REVOKE, EXPORT, EMERGENCY_ACCESS
-  doctorName String?
+  action      String   // VIEW, GRANT, REVOKE, EXPORT, EMERGENCY_ACCESS
+  clinicianId String?
+  clinician   Clinician? @relation(fields: [clinicianId], references: [id], onDelete: SetNull)
   reason     String?
   isEmergency Boolean @default(false)
 
@@ -172,7 +181,8 @@ model Medication {
   startDate  DateTime
   endDate    DateTime?
 
-  prescribedBy String?
+  clinicianId  String?
+  clinician    Clinician? @relation(fields: [clinicianId], references: [id], onDelete: SetNull)
   indication   String?
 
   createdAt  DateTime @default(now())

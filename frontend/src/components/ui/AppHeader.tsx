@@ -12,7 +12,7 @@ export function AppHeader() {
     <header className="glass flex items-center justify-between px-6 py-4 rounded-2xl mb-6 sticky top-4 z-50">
       <div className="flex items-center gap-4">
         <div className="lg:hidden flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-sage-500 to-sage-700 flex items-center justify-center shadow-sm">
+          <div className="w-8 h-8 rounded-full bg-linear-to-br from-sage-500 to-sage-700 flex items-center justify-center shadow-sm">
             <span className="text-white font-bold text-sm">H</span>
           </div>
           <span className="text-lg font-bold text-text">Healins</span>

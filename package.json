@@ -4,6 +4,10 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "docker compose up --build",
-    "dev:local": "bash scripts/dev.sh"
+    "dev:local": "bash scripts/dev.sh",
+    "start": "npx --yes concurrently -n backend,frontend -c cyan,magenta \"npm --prefix backend run start:dev\" \"npm --prefix frontend run dev\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1"
   }
 }
